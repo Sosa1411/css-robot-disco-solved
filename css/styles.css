@@ -5,37 +5,261 @@ body {
 /* 👇👇👇 Paste the styles of your Fancy Robot from the "Position it right" assignment here 👇👇👇 */
 
 .robot-container {
+  height: 1000px;
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
 }
 
 .robot-face-shape {
+  width: 500px;
+  height: 500px;
+  background-image: linear-gradient(110deg, purple, yellow, black);
+  border: 15px solid rgb(24, 204, 105);
+  border-color: rgb(24, 204, 105);
+  border-radius: 50px;
+  margin: auto;
+  display: flex;
 }
 
 .robot-eye-left {
+  position: relative;
+  width: 54px;
+  box-sizing: content-box;
+  border-width: 50px 18px 0;
+  border-style: solid;
+  border-color: rgb(0, 217, 255) transparent;
+  margin-top: 100px;
+  margin-left: 100px;
+  animation: rotate 5s infinite;
+}
+
+@keyframes rotate {
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+.robot-eye-left:before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -85px;
+  left: -18px;
+  border-width: 0 45px 35px;
+  border-style: solid;
+  border-color: transparent transparent rgb(217, 255, 0);
 }
 
 .robot-eye-right {
+  width: 20%;
+  height: 20%;
+  background-image: url(https://picsum.photos/id/237/200/300);
+  background-position: center;
+  border-radius: 50%;
+  margin-left: 100px;
+  margin-top: 60px;
+  animation: dissapear 3s infinite;
+}
+
+@keyframes dissapear {
+  0% {
+    opacity: 1;
+    transform: rotateX(90deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: rotateX(0deg);
+  }
+  100% {
+    display: none;
+    opacity: 0;
+    transform: rotateX(90deg);
+  }
 }
 
 .robot-ear-left {
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-right: 100px solid rgba(255, 0, 255, 0.24);
+  border-bottom: 90px solid transparent;
+  position: absolute;
+  margin-top: 300px;
+  margin-left: 125px;
+  animation: dimension 5s infinite;
+}
+
+@keyframes dimension {
+  0% {
+    width: 0;
+    height: 0;
+  }
+
+  25% {
+    width: 10px;
+    height: 10px;
+  }
+
+  50% {
+    width: 20px;
+    height: 20px;
+  }
+
+  100% {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .robot-ear-right {
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-bottom-color: rgba(0, 38, 255, 0.548);
+  position: relative;
+  top: -50px;
+  position: absolute;
+  margin-left: 770px;
+  margin-top: 300px;
+}
+
+.robot-ear-right:hover {
+  width: 30px;
+  height: 30px;
+  border-bottom-color: blueviolet;
+}
+
+.robot-ear-right::after {
+  content: "";
+  position: absolute;
+  left: -50px;
+  top: 50px;
+  width: 0;
+  height: 0;
+  border: 50px solid transparent;
+  border-top-color: red;
 }
 
 .robot-nose {
-}
-
-.robot-nose:before {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid rgb(212, 0, 255);
+  position: absolute;
+  margin-left: 190px;
+  margin-top: 175px;
+  animation: nose 5s infinite;
 }
 
 .robot-nose:after {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 100px solid rgb(60, 255, 0);
+  position: absolute;
+  content: "";
+  top: 30px;
+  left: -50px;
+  animation: nose 5s infinite;
+}
+
+@keyframes nose {
+  0% {
+    border-color: black;
+  }
+
+  50% {
+    border-color: green;
+  }
+
+  100% {
+    border-color: red;
+  }
 }
 
 .robot-teeth {
+  position: relative;
+  text-align: center;
+  padding: 12px;
+  margin-bottom: 6px;
+  height: 60px;
+  width: 200px;
+  position: absolute;
+  margin-top: 350px;
+  margin-left: 140px;
+  animation: teeth 5s infinite;
 }
 
-.robot-tooth {
+.robot-teeth::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 51%;
+  background: rgb(76, 0, 255);
+  transform: skew(0deg, 6deg);
+  animation: teeth 5s infinite;
+}
+
+.robot-teeth::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  background: rgb(76, 0, 255);
+  transform: skew(0deg, -6deg);
+  animation: teeth 5s infinite;
+}
+
+@keyframes teeth {
+  0% {
+    width: 100px;
+    height: 100px;
+    background-color: chocolate;
+  }
+
+  50% {
+    width: 150px;
+    height: 150px;
+    background-color: plum;
+  }
+
+  100% {
+    width: 200px;
+    height: 200px;
+    background-color: darksalmon;
+  }
 }
 
 .robot-hair-style {
+  width: 12em;
+  height: 5em;
+  background: rgb(4, 0, 255);
+  border-radius: 50px / 100px;
+  position: absolute;
+  margin-left: 400px;
+  margin-top: 100px;
+  animation: color 5s infinite;
+}
+
+@keyframes color {
+  0% {
+    background-color: blueviolet;
+  }
+
+  50% {
+    background-color: rgb(43, 226, 134);
+  }
+
+  100% {
+    background-color: aqua;
+  }
 }
